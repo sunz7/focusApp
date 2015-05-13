@@ -4,6 +4,7 @@ angular.module('starter.controllers')
   $scope.acts = Acts.all();
   $scope.remove = function(act) {
     Acts.remove(act);
+    
   };
 
   //timer code
