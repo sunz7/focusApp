@@ -6,6 +6,9 @@ angular.module('starter.controllers')
     Acts.remove(act);
     
   };
+  $scope.init = function(){
+
+  }
 
   //timer code
   $scope.drawCanvas = function(){
@@ -24,12 +27,10 @@ angular.module('starter.controllers')
   
   
   function drawScreen() {
-    
-    
-    
+  
     //======= reset canvas
     
-    ctx.fillStyle="#2e3032";
+    ctx.fillStyle="#FFFFFF";
     ctx.fillRect(0,0,cWidth,cHeight);
     
     //========== base arc
