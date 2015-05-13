@@ -1,38 +1,41 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
+.factory('Acts', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var chats = [{
+  var acts = [{
     id: 0,
     name: 'Python',
     startAt: '01/01/2015',
     hours: 30,
-    image: '/../img/u18.png'
+    completed: 20,
+    image: 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png'
   },     {id: 1,
     name: 'Reading',
     startAt: '05/01/2015',
     hours: 40,
-    image: '/../img/u61.png'
+    completed: 20,
+    image: 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u61.png'
   },    { id: 2,
     name: 'Running',
     startAt: '02/28/2015',
     hours: 25,
-    image: '/../img/u71.png'
+    completed: 20,
+    image: 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u71.png'
   }];
 
   return {
     all: function() {
-      return chats;
+      return acts;
     },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
+    remove: function(act) {
+      acts.splice(acts.indexOf(act), 1);
     },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+    get: function(actId) {
+      for (var i = 0; i < acts.length; i++) {
+        if (acts[i].id === parseInt(actId)) {
+          return acts[i];
         }
       }
       return null;
