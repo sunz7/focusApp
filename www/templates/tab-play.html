@@ -1,7 +1,17 @@
 <ion-view view-title="Play">
   <ion-content>
-<canvas id="mycanvas" width="250" height="250"></canvas>  
-<button ng-click="drawCanvas()">start</button>
+    <label class="item item-input">
+      <input type="tel">
+      <span class="input-label">Minutes you want to focus</span>
+      
+    </label>
+      <button class="button button-full button-positive" ng-click="drawCanvas()">
+    Play
+    </button>
+    <canvas id="mycanvas" width="250" height="250"></canvas>  
+  
+
+
 <!--     <div class="list card">
 
   <div class="item item-avatar">

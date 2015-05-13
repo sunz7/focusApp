@@ -17,5 +17,9 @@ angular.module('starter.controllers')
         $state.go("tab.activities");
      }
    });
-  }
+  };
+
+  $scope.startAct = function(act){
+    $state.go('tab.play');
+  };
 });
