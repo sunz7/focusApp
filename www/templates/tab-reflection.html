@@ -1,43 +1,7 @@
-<ion-view view-title="Reflection" ng-init="init()">
+<ion-view view-title="Reflection" ng-init="init()" ng-style="{'background-image': 'url(' + reflection.image + ')'}" class="ref-container">
   <ion-content>
-    <label class="item item-input">
-      <input type="tel" ng-model="minutes">
-      <span class="input-label">minutes to stay focused</span>
-      
-    </label>
-<!--     <div class="container">
-      <div id="pm">
-        <input type="button" id="plus" value="&#xf0de;">
-        <input type="button" id="minus" value="&#xf0dd;">
-      </div>
-    <p id="result">30</p>
-    <p id="sec">sec</p>
-    <canvas id="progress" width="200" height="200"></canvas>
-    </div> -->
-    <div class="container">
-    <canvas id="mycanvas" width="250" height="250"></canvas>
-    </div>
-    <button id="start" class="button button-balanced" ng-click="button_clicked ||startTimer(minutes)" ng-disabled="button_clicked">start</button>
-    <button id="stop" class="button button-positive" ng-click="stopTimer()">stop</button>
-  
 
-<!--     <div class="list card">
+    <div class="reflection-container"  ></div>
 
-  <div class="item item-avatar">
-    <img src="avatar.jpg">
-    <h2>Pretty Hate Machine</h2>
-    <p>Nine Inch Nails</p>
-  </div>
-
-  <div class="item item-image">
-    <img src="cover.jpg">
-  </div>
-
-  <a class="item item-icon-left assertive" href="#">
-    <i class="icon ion-music-note"></i>
-    Start listening
-  </a>
-
-</div> -->
   </ion-content>
 </ion-view>
