@@ -3,7 +3,7 @@ angular.module('starter.controllers')
 .controller('ActDetailCtrl', function($scope, $stateParams, Acts, $state, $ionicPopup) {
   $scope.act = Acts.get($stateParams.actId);
   $scope.startAct = function(act){
-
+     $state.go('tab.play');
   };
   $scope.deleteAct = function(act){
 
@@ -17,9 +17,5 @@ angular.module('starter.controllers')
         $state.go("tab.activities");
      }
    });
-  };
-
-  $scope.startAct = function(act){
-    $state.go('tab.play');
   };
 });
