@@ -1,4 +1,18 @@
-canvas {
-  display:block;
-  margin:20px auto;
+#start, #stop {
+	margin-right: 30px;
+	border-radius: 8px;
+	top: 265px;
+	left: 30%;
+	transform: translate(-50%);
+	width: 120px;
+}
+
+#mycanvas {
+	position: relative;
+	top: 120px;
+	display: block;
+	margin: 0 auto;
+}
+.myImage {
+	display: none;
 }

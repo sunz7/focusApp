@@ -1,31 +1,57 @@
 angular.module('starter.controllers')
 
 .controller('PlayCtrl', function($scope, Acts) {
-  $scope.acts = Acts.all();
-  $scope.remove = function(act) {
-    Acts.remove(act);
-    
-  };
-  $scope.init = function(){
+  $scope.minutes = 30;
+  $scope.play = true;
+  $scope.button_clicked = false;
+  $scope.canvas=document.getElementById('mycanvas');
 
+  $scope.init = function(){
+   
+    //======= reset canvas
+    var ctx=$scope.canvas.getContext('2d');
+    var cWidth=$scope.canvas.width;
+    var cHeight=$scope.canvas.height;
+    ctx.fillStyle="#FFFFFF";
+    ctx.fillRect(0,0,cWidth,cHeight);
+    
+    //========== base arc
+    ctx.beginPath();
+    ctx.strokeStyle="#EAEFBE";
+    ctx.lineWidth=14;
+    ctx.arc(cWidth/2,cHeight/2,100,(Math.PI/180)*0,(Math.PI/180)*360,false);   
+    ctx.stroke();
+    ctx.closePath();
+
+    //=========== draw image
+    var img = new Image();
+    img.onload = function() {
+      ctx.drawImage(img,cWidth/4,cHeight/4,120,120);
+    } 
+    img.src = 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png';
+  }
+
+  // forward to failure page
+  $scope.stopTimer = function() {
+    $scope.play = false;
   }
 
   //timer code
-  $scope.drawCanvas = function(){
-  var canvas=document.getElementById('mycanvas');
-  var ctx=canvas.getContext('2d');
-  var cWidth=canvas.width;
-  var cHeight=canvas.height;
+  $scope.startTimer = function(minutes){
+
+  var ctx=$scope.canvas.getContext('2d');
+  var cWidth=$scope.canvas.width;
+  var cHeight=$scope.canvas.height;
   
-  var countTo=90;
   
-  var min=Math.floor(countTo/60);
-  var sec=countTo-(min*60);
+  var min=minutes - 1;
+  var sec= 60;
   var counter=0;
   var angle=270;
-  var inc=360/countTo; 
-  
-  
+  var inc=360/(minutes*60); 
+
+  $scope.button_clicked = true;
+
   function drawScreen() {
   
     //======= reset canvas
@@ -36,7 +62,7 @@ angular.module('starter.controllers')
     //========== base arc
     
     ctx.beginPath();
-    ctx.strokeStyle="#252424";
+    ctx.strokeStyle="#EAEFBE";
     ctx.lineWidth=14;
     ctx.arc(cWidth/2,cHeight/2,100,(Math.PI/180)*0,(Math.PI/180)*360,false);
     ctx.stroke();
@@ -45,49 +71,9 @@ angular.module('starter.controllers')
     //========== dynamic arc
     
     ctx.beginPath();
-    ctx.strokeStyle="#df8209";
+    ctx.strokeStyle="#1EB89D";
     ctx.lineWidth=14;
     ctx.arc(cWidth/2,cHeight/2,100,(Math.PI/180)*270,(Math.PI/180)*angle,false);
-    ctx.stroke();
-    ctx.closePath();
-    
-    //======== inner shadow arc
-    
-    grad=ctx.createRadialGradient(cWidth/2,cHeight/2,80,cWidth/2,cHeight/2,115);
-    grad.addColorStop(0.0,'rgba(0,0,0,.4)');
-    grad.addColorStop(0.5,'rgba(0,0,0,0)');
-    grad.addColorStop(1.0,'rgba(0,0,0,0.4)');
-    
-    ctx.beginPath();
-    ctx.strokeStyle=grad;
-    ctx.lineWidth=14;
-    ctx.arc(cWidth/2,cHeight/2,100,(Math.PI/180)*0,(Math.PI/180)*360,false);
-    ctx.stroke();
-    ctx.closePath();
-    
-    //======== bevel arc
-    
-    grad=ctx.createLinearGradient(cWidth/2,0,cWidth/2,cHeight);
-    grad.addColorStop(0.0,'#6c6f72');
-    grad.addColorStop(0.5,'#252424');
-    
-    ctx.beginPath();
-    ctx.strokeStyle=grad;
-    ctx.lineWidth=1;
-    ctx.arc(cWidth/2,cHeight/2,93,(Math.PI/180)*0,(Math.PI/180)*360,true);
-    ctx.stroke();
-    ctx.closePath();
-    
-    //====== emboss arc
-    
-    grad=ctx.createLinearGradient(cWidth/2,0,cWidth/2,cHeight);
-    grad.addColorStop(0.0,'transparent');
-    grad.addColorStop(0.98,'#6c6f72');
-    
-    ctx.beginPath();
-    ctx.strokeStyle=grad;
-    ctx.lineWidth=1;
-    ctx.arc(cWidth/2,cHeight/2,107,(Math.PI/180)*0,(Math.PI/180)*360,true);
     ctx.stroke();
     ctx.closePath();
     
@@ -108,19 +94,19 @@ angular.module('starter.controllers')
     
     ctx.fillStyle='#6292ae';
     
-    if (min>9) {
-      ctx.font='84px '+fontFace;
-      ctx.fillText('9' ,cWidth/2-55,cHeight/2+35);
+    // if (min>9) {
+    //   ctx.font='84px '+fontFace;
+    //   ctx.fillText('9' ,cWidth/2-55,cHeight/2+35);
       
-      ctx.font='24px '+fontFace;
-      ctx.fillText('+' ,cWidth/2-72,cHeight/2-5);      
-    }
-    else {
-      ctx.font='84px '+fontFace;
+    //   ctx.font='24px '+fontFace;
+    //   ctx.fillText('+' ,cWidth/2-72,cHeight/2-5);      
+    // }
+    // else {
+      ctx.font='60px '+fontFace;
       ctx.fillText(min ,cWidth/2-60,cHeight/2+35);
-    }
+    // }
     
-    ctx.font='50px '+fontFace;
+    ctx.font='30px '+fontFace;
     if (sec<10) {
       ctx.fillText('0'+sec,cWidth/2+10,cHeight/2+35);
     } 
@@ -128,14 +114,13 @@ angular.module('starter.controllers')
       ctx.fillText(sec,cWidth/2+10,cHeight/2+35);
     }
     
-    
-    if (sec<=0 && counter<countTo) {
+    if($scope.play) {
+      if (sec<=0 && counter<minutes*60) {
       angle+=inc;
       counter++;
       min--;
       sec=59; 
-    } else
-      if (counter>=countTo) {
+    } else if (counter>=minutes*60) {
         sec=0;
         min=0;
       } else {
@@ -143,6 +128,9 @@ angular.module('starter.controllers')
         counter++;
         sec--;
       }
+    }
+
+    //forward to success page!    
   }
   
   setInterval(drawScreen,1000);
