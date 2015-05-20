@@ -6,10 +6,11 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 
-openFB.init({appId: '1632169413664865'});
+
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ui.router', 'ionic.utils'])
 
 .run(function($ionicPlatform, $localstorage) {
+  openFB.init({appId: '1632169413664865'});
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -88,7 +89,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     })
 
-      .state('tab.play', {
+    .state('tab.play', {
       url: '/acts/:actId/play',
       views: {
         'activities': {
@@ -97,14 +98,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
-    // .state('tab.new-detail', {
-    //   url: '/new/:actId',
-    //   views: {
-    //     'activities': {
-    //       templateUrl: 'templates/new-detail.html'
-    //     }
-    //   }
-    // })
+
+    .state('tab.add', {
+      url: '/activities/add',
+      views: {
+        'activities': {
+          templateUrl: 'templates/tab-add.html',
+          controller: 'AddCtrl'
+        }
+      }
+    })
 
   .state('tab.account', {
     url: '/account',

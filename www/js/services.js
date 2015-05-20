@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
 
-.factory('Acts', function() {
+.factory('Acts', function($localstorage) {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
@@ -11,23 +11,18 @@ angular.module('starter.services', [])
     hours: 30,
     completed: 20,
     image: 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png'
-  },     {id: 1,
-    name: 'Reading',
-    startAt: '05/01/2015',
-    hours: 40,
-    completed: 20,
-    image: 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u61.png'
-  },    { id: 2,
-    name: 'Running',
-    startAt: '02/28/2015',
-    hours: 25,
-    completed: 20,
-    image: 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u71.png'
   }];
 
   return {
     all: function() {
-      return acts;
+      return $localstorage.getObject('activities');
+    },
+    add: function(newAct) {
+      var acts = $localstorage.getObject('activities');
+      //var newActs = [];
+      acts.push(newAct);
+      //console.log(newAct);
+      return $localstorage.setObject('activities', acts);
     },
     remove: function(act) {
       acts.splice(acts.indexOf(act), 1);
