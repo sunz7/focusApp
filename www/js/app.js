@@ -55,15 +55,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   })
 
-  .state('tab.play', {
-      url: '/play',
-      views: {
-        'tab-play': {
-          templateUrl: 'templates/tab-play.html',
-          controller: 'PlayCtrl'
-        }
-      }
-    })
+
     .state('tab.challenge', {
       url: '/challenge',
       views: {
@@ -92,6 +84,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
+
+      .state('tab.play', {
+      url: '/acts/:actId/play',
+      views: {
+        'activities': {
+          templateUrl: 'templates/tab-play.html',
+          controller: 'PlayCtrl'
+        }
+      }
+    })
+    // .state('tab.new-detail', {
+    //   url: '/new/:actId',
+    //   views: {
+    //     'activities': {
+    //       templateUrl: 'templates/new-detail.html'
+    //     }
+    //   }
+    // })
 
   .state('tab.account', {
     url: '/account',
