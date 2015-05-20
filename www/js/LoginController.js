@@ -1,7 +1,6 @@
 angular.module('starter.controllers')
 
 .controller('LoginCtrl', function($scope) {
-
     $scope.fbLogin = function() {
         openFB.login(
             function(response) {

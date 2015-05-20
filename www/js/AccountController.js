@@ -1,11 +1,8 @@
 angular.module('starter.controllers')
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: false
-  };
+.controller('AccountCtrl', function($scope, $state) {
     openFB.api({
-        path: '/tab/account',
+        path: '/me',
         params: {fields: 'id,name'},
         success: function(user) {
             $scope.$apply(function() {
@@ -16,5 +13,14 @@ angular.module('starter.controllers')
             alert('Facebook error: ' + error.error_description);
         }
     });
+
+    $scope.logout = function () {
+            openFB.logout();
+            console.log('logout');
+    };
+
+    $scope.revokePermissions = function () {
+            openFB.revokePermissions();
+    };
   
 });
