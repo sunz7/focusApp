@@ -5,12 +5,16 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ui.router'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ui.router', 'ionic.utils'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $localstorage) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+
+    //the two lines of commented code below is for test localStorage
+    // $localstorage.set('name', 'Max');
+    // console.log($localstorage.get('name'));
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
