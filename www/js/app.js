@@ -5,6 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+
+openFB.init({appId: '1632169413664865'});
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ui.router', 'ionic.utils'])
 
 .run(function($ionicPlatform, $localstorage) {
@@ -34,7 +36,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   $stateProvider
     .state('login', {
     url: "/",
-    templateUrl: "templates/login.html"
+    templateUrl: "templates/login.html",
+    controller: 'LoginCtrl'
   })
   // setup an abstract state for the tabs directive
     .state('tab', {
