@@ -1,10 +1,9 @@
 <html>
 <body>
 <script>
-	setTimeout(function(){
-	    window.opener.openFB.oauthCallback(window.location.href);
-	    window.close();
-	}, 100);
+window.opener.openFB.oauthCallback(window.location.href);
+console.log(window.location.href);
+window.close();
 </script>
 </body>
 </html>

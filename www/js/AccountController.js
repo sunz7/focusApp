@@ -6,6 +6,7 @@ angular.module('starter.controllers')
         params: {fields: 'id,name'},
         success: function(user) {
             $scope.$apply(function() {
+            	console.log(user);
                 $scope.user = user;
             });
         },
