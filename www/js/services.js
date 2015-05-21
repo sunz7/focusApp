@@ -35,6 +35,9 @@ angular.module('starter.services', [])
         }
       }
       return null;
+    },
+    setAll: function(acts){
+      return $localstorage.setObject('activities', acts);
     }
   };
 });

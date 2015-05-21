@@ -7,6 +7,7 @@ angular.module('ionic.utils', [])
     name: 'Python',
     category: 'Study',
     starts: today,
+    ends: today,
     hours: 30,
     completed: 20,
     image: 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png'

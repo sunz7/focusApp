@@ -8,7 +8,7 @@
 <ion-content class="has-header">
 
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="act in acts" type="item-text-wrap" href="#/tab/acts/{{act.id}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="act in acts" type="item-text-wrap" ng-click="goDetail(act)" href="#/tab/acts/{{act.id}}">
         <img ng-src="{{act.image}}">
         <h2>{{act.name}}</h2><i class="icon">{{act.hours}}</i>
         <p>Started at {{act.starts | date : format : shortDate}}</p>

@@ -108,6 +108,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
+    .state('tab.edit', {
+      url: '/acts/:actId/edit',
+      views: {
+        'activities': {
+          templateUrl: 'templates/tab-edit.html',
+          controller: 'EditCtrl'
+        }
+      }
+    })
 
   .state('tab.account', {
     url: '/account',

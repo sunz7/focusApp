@@ -1,10 +1,14 @@
 angular.module('starter.controllers')
 
-.controller('ActDetailCtrl', function($scope, $stateParams, Acts, $state, $ionicPopup) {
-  $scope.act = Acts.get($stateParams.actId);
+.controller('ActDetailCtrl', function($scope, $stateParams, Acts, $state, $ionicPopup, $rootScope) {
+
   // $scope.startAct = function(act){
   //    $state.go('tab.play');
   // };
+  $rootScope.$on('goDetail', function(event, toState, toParams, fromState, fromParams) {
+    $scope.act = Acts.get($stateParams.actId);
+    //$scope.acts = Acts.get($scope.act.id);
+  });
   $scope.deleteAct = function(act){
 
    var confirmPopup = $ionicPopup.confirm({
