@@ -41,21 +41,23 @@
     <div class="input-label">
       Your Goal
     </div>
-    <input type="text" style="text-align: right;" ng-model="act.hours">
+    <input type="number" style="text-align: right;" ng-model="act.hours">
+    hours
   </label>
 
       <label class="item item-input">
+
     <div class="input-label">
       Starts
     </div>
-    <input type="text" style="text-align: right;" ng-model="act.startAt">
+    <input type="date" style="text-align: right;" ng-model="act.starts">
   </label>
 
   <label class="item item-input">
     <div class="input-label">
       Ends
     </div>
-    <input type="text" style="text-align: right;" ng-model="act.ends">
+    <input type="date" style="text-align: right;" ng-model="act.ends">
   </label>
 
     <ion-toggle  ng-model="act.reminder">

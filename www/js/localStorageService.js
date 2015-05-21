@@ -1,10 +1,12 @@
 angular.module('ionic.utils', [])
 
 .factory('$localstorage', ['$window', function($window) {
+  var today = new Date();
     var testObject = [{
     id: 0,
     name: 'Python',
-    starts: '01/01/2015',
+    category: 'Study',
+    starts: today,
     hours: 30,
     completed: 20,
     image: 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png'
