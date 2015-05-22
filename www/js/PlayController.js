@@ -1,7 +1,7 @@
 angular.module('starter.controllers')
 
-.controller('PlayCtrl', function($scope, Acts) {
-  $scope.minutes = 30;
+.controller('PlayCtrl', function($scope, Acts, $stateParams) {
+  $scope.minutes = $stateParams.mins;
   $scope.play = true;
   $scope.button_clicked = false;
   $scope.canvas=document.getElementById('mycanvas');

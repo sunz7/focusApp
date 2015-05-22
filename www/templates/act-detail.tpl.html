@@ -57,14 +57,32 @@
 
 </div>
 
-  <div class="item tabs tabs-secondary tabs-icon-left">
-    <a class="tab-item" href="#/tab/acts/{{act.id}}/play">
-      <i class="icon ion-checkmark"></i>
-      Start
-    </a>
-  </div>
 
+
+<!--   <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item  my-tab-item">
+      15 mins
+    </a>
+    <a class="tab-item">
+      30 mins
+    </a>
+    <a class="tab-item">
+      45 mins
+    </a>
+  </div> -->
+<h4 style="font-weight:normal;">Choose the time your want to stay focused</h4>
+    <paper-tabs selected="1" noink noslide>
+
+      <paper-tab ng-click="setTime(15)">15 mins</paper-tab>
+      <paper-tab ng-click="setTime(30)">30 mins</paper-tab>
+      <paper-tab ng-click="setTime(45)">45 mins</paper-tab>
+
+    </paper-tabs>
 </div>
+
+  <button ng-click="start(selected)" class="button startButton">
+  Start
+</button>
 
   </ion-content>
 </ion-view>

@@ -21,3 +21,33 @@
 	background: no-repeat center;
 }
 
+.choose-time-tab {
+ 	background-color: white;
+}
+.startButton {
+	width: 80%;
+	height: 65px;
+	background-color: #00bcd4;
+	color: white;
+	font-size: 24px;
+	font-weight: bold;
+	margin: auto 0;
+}
+paper-tabs, core-toolbar {
+	background-color: white; 
+	color: black;
+	/*box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);*/
+}
+paper-tab.core-selected {
+	background-color: #00bcd4;
+	color: white;
+}
+core-toolbar paper-tabs {
+	box-shadow: none;
+}
+paper-tabs[noink][nobar] paper-tab.core-selected {
+	color: #ffff8d;
+}
+paper-tabs[alignBottom] {
+	box-shadow: 0px -6px 6px rgba(0, 0, 0, 0.15);
+}

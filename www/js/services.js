@@ -2,17 +2,6 @@ angular.module('starter.services', [])
 
 .factory('Acts', function($localstorage) {
   // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  // var acts = [{
-  //   id: 0,
-  //   name: 'Python',
-  //   startAt: '01/01/2015',
-  //   hours: 30,
-  //   completed: 20,
-  //   image: 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png'
-  // }];
-
   return {
     all: function() {
       return $localstorage.getObject('activities');

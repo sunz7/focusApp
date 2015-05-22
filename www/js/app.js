@@ -89,7 +89,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     })
 
     .state('tab.play', {
-      url: '/acts/:actId/play',
+      url: '/acts/:actId/:mins/play',
       views: {
         'activities': {
           templateUrl: 'templates/tab-play.html',
