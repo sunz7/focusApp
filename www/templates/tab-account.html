@@ -1,8 +1,5 @@
 <ion-view view-title="Profile">
   <ion-content>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
     <div class="list card">
             <div class="item">
                 <h2>{{user.name}}</h2>
@@ -13,12 +10,12 @@
             </div>
     </div>
     <ion-item ng-click="logout()">
-            <i class="icon ion-log-out"></i>
-                Logout
-            </ion-item>
-            <ion-item ng-click="revokePermissions()">
-                <i class="icon ion-unlocked"></i>
-                    Revoke Permissions
-                </ion-item>
+        <i class="icon ion-log-out"></i>
+            Logout
+    </ion-item>
+ <!--    <ion-item ng-click="revokePermissions()">
+        <i class="icon ion-unlocked"></i>
+            Revoke Permissions
+    </ion-item> -->
   </ion-content>
 </ion-view>

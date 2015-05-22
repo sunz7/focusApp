@@ -16,12 +16,13 @@ angular.module('starter.controllers')
     });
 
     $scope.logout = function () {
-            openFB.logout();
-            console.log('logout');
+        openFB.logout();
+        $state.go('login');
+        console.log('logout');
     };
-
-    $scope.revokePermissions = function () {
-            openFB.revokePermissions();
-    };
-  
+    
+    // removePermission
+    // $scope.revokePermissions = function () {
+    //     openFB.revokePermissions();
+    // };
 });
