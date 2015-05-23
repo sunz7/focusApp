@@ -10,7 +10,7 @@ angular.module('starter.controllers')
   };
 
   $scope.start = function(selected){
-    $state.go("tab.play", {actId: $stateParams.actId, mins: $scope.mins});
+    $state.go("play", {actId: $stateParams.actId, mins: $scope.mins});
   };
   $scope.act = Acts.get($stateParams.actId);
   $rootScope.$on('goDetail', function(event, toState, toParams, fromState, fromParams) {

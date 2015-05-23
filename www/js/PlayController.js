@@ -11,7 +11,7 @@ angular.module('starter.controllers')
   // forward to failure page
   $scope.stopTimer = function() {
     $scope.play = false;
-    $state.go('tab.failure');
+    $state.go('failure');
   };
 
   //timer code
@@ -45,7 +45,7 @@ angular.module('starter.controllers')
     //========== dynamic arc
     
     ctx.beginPath();
-    ctx.strokeStyle="#FCBF4A";
+    ctx.strokeStyle="#FFCA44";
     ctx.lineWidth=14;
     ctx.arc(cWidth/2,cHeight/2,100,(Math.PI/180)*270,(Math.PI/180)*angle,false);
     ctx.stroke();

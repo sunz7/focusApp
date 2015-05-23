@@ -13,17 +13,12 @@
   </ion-nav-title>
   <ion-content class="has-header">
 
-<!--   <div class="list">
-      <a class="item item-avatar" href="#">
-      <img ng-src="{{act.image}}" style="width: 64px; height: 64px">
-      <h2>{{act.name}}</h2>
-      <p>Started at {{act.startAt}}</p>
-    </a>
-  </div> -->
-
 <div class="list">
   <label class="item item-input">
-    <input type="text" placeholder="Activity Title" ng-model="act.name">
+    <div class="input-label">
+      Name
+    </div>
+    <input type="text" placeholder="Activity Title" ng-model="act.name" style="text-align: right;">
   </label>
 
   <label class="item item-input item-select">
@@ -33,17 +28,18 @@
     <select ng-model="act.category">
       <option>Work</option>
       <option selected>Study</option>
+      <option selected>Recreation</option>
       <option>Others</option>
     </select>
   </label>
 
-    <label class="item item-input">
+   <label class="item item-input">
     <div class="input-label">
       Your Goal
     </div>
-    <input type="number" style="text-align: right;" ng-model="act.hours">
-    hours
-  </label>
+    <input type="number" style="text-align: right;" placeholder="30" ng-model="act.hours">
+    <span class="input-label">Hrs</span>
+    </label>
 
       <label class="item item-input">
 
@@ -60,7 +56,7 @@
     <input type="date" style="text-align: right;" ng-model="act.ends">
   </label>
 
-    <ion-toggle  ng-model="act.reminder">
+    <ion-toggle  toggle-class="toggle-calm" ng-model="act.reminder">
         Reminder
     </ion-toggle>
 

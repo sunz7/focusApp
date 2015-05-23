@@ -39,6 +39,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     templateUrl: "templates/login.html",
     controller: 'LoginCtrl'
   })
+
+  .state('success', {
+    url: '/acts/:actId/:mins/play/success',
+    templateUrl: 'templates/success.html',
+    controller: 'SuccessCtrl'
+  })
+  .state('failure', {
+    url: '/acts/:actId/:mins/play/failure',
+    templateUrl: 'templates/failure.html',
+    controller: 'FailureCtrl'
+  })
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: "/tab",
@@ -88,26 +99,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     })
 
-    .state('tab.play', {
+    .state('play', {
       url: '/acts/:actId/:mins/play',
-      views: {
-        'activities': {
-          templateUrl: 'templates/tab-play.html',
-          controller: 'PlayCtrl'
-        }
-      }
+      templateUrl: 'templates/tab-play.html',
+      controller: 'PlayCtrl'
     })
-
-  .state('tab.success', {
-    url: '/acts/:actId/:mins/play/success',
-    templateUrl: 'templates/success.html',
-    controller: 'SuccessCtrl'
-  })
-  .state('tab.failure', {
-    url: '/acts/:actId/:mins/play/failure',
-    templateUrl: 'templates/failure.html',
-    controller: 'SailureCtrl'
-  })
 
     .state('tab.add', {
       url: '/activities/add',
