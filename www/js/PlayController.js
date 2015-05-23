@@ -1,56 +1,30 @@
 angular.module('starter.controllers')
 
-.controller('PlayCtrl', function($scope, Acts, $stateParams) {
-  $scope.minutes = $stateParams.mins;
-  $scope.play = true;
-  $scope.button_clicked = false;
-  $scope.canvas=document.getElementById('mycanvas');
-
-  $scope.init = function(){
-   
-    //======= reset canvas
-    var ctx=$scope.canvas.getContext('2d');
-    var cWidth=$scope.canvas.width;
-    var cHeight=$scope.canvas.height;
-    ctx.fillStyle="#FFFFFF";
-    ctx.fillRect(0,0,cWidth,cHeight);
-    
-    //========== base arc
-    ctx.beginPath();
-    ctx.strokeStyle="#EAEFBE";
-    ctx.lineWidth=14;
-    ctx.arc(cWidth/2,cHeight/2,100,(Math.PI/180)*0,(Math.PI/180)*360,false);   
-    ctx.stroke();
-    ctx.closePath();
-
-    //=========== draw image
-    var img = new Image();
-    img.onload = function() {
-      ctx.drawImage(img,cWidth/4,cHeight/4,120,120);
-    } 
-    img.src = 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png';
+.controller('PlayCtrl', function($scope, $stateParams, $state) {
+  var minutes = $stateParams.mins;
+  if(minutes == 0) {
+    minutes = 30;
   }
+  $scope.canvas=document.getElementById('mycanvas');
+  $scope.play=true;
 
   // forward to failure page
   $scope.stopTimer = function() {
     $scope.play = false;
-  }
+    $state.go('tab.failure');
+  };
 
   //timer code
-  $scope.startTimer = function(minutes){
 
   var ctx=$scope.canvas.getContext('2d');
   var cWidth=$scope.canvas.width;
   var cHeight=$scope.canvas.height;
-  
-  
+
   var min=minutes - 1;
   var sec= 60;
   var counter=0;
   var angle=270;
   var inc=360/(minutes*60); 
-
-  $scope.button_clicked = true;
 
   function drawScreen() {
   
@@ -62,7 +36,7 @@ angular.module('starter.controllers')
     //========== base arc
     
     ctx.beginPath();
-    ctx.strokeStyle="#EAEFBE";
+    ctx.strokeStyle="#0FABE0";
     ctx.lineWidth=14;
     ctx.arc(cWidth/2,cHeight/2,100,(Math.PI/180)*0,(Math.PI/180)*360,false);
     ctx.stroke();
@@ -71,7 +45,7 @@ angular.module('starter.controllers')
     //========== dynamic arc
     
     ctx.beginPath();
-    ctx.strokeStyle="#1EB89D";
+    ctx.strokeStyle="#FCBF4A";
     ctx.lineWidth=14;
     ctx.arc(cWidth/2,cHeight/2,100,(Math.PI/180)*270,(Math.PI/180)*angle,false);
     ctx.stroke();
@@ -92,7 +66,7 @@ angular.module('starter.controllers')
     
     
     
-    ctx.fillStyle='#6292ae';
+    ctx.fillStyle='#0FABE0';
     
     // if (min>9) {
     //   ctx.font='84px '+fontFace;
@@ -134,7 +108,5 @@ angular.module('starter.controllers')
   }
   
   setInterval(drawScreen,1000);
-  
-};
 
 });

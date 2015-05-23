@@ -1,6 +1,8 @@
 angular.module('starter.controllers')
 
-.controller('AccountCtrl', function($scope, $state) {
+.controller('AccountCtrl', function($scope,$state) {
+    $scope.logout = true;
+    // $scope.act = Acts.get($stateParams.actId);
     openFB.api({
         path: '/me',
         params: {fields: 'id,name'},
@@ -8,17 +10,18 @@ angular.module('starter.controllers')
             $scope.$apply(function() {
             	console.log(user);
                 $scope.user = user;
+                $scope.logout = true;
             });
         },
         error: function(error) {
-            alert('Facebook error: ' + error.error_description);
+            console.log(error);
+            $scope.logout = false;
         }
     });
 
     $scope.logout = function () {
         openFB.logout();
         $state.go('login');
-        console.log('logout');
     };
     
     // removePermission

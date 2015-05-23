@@ -1,4 +1,4 @@
-#start, #stop {
+#start{
 	margin-right: 30px;
 	border-radius: 8px;
 	top: 265px;
@@ -6,10 +6,14 @@
 	transform: translate(-50%);
 	width: 120px;
 }
-
+#stop {
+	top: 130px;
+	font-size: 20px;
+	font-weight: bold;
+}
 #mycanvas {
 	position: relative;
-	top: 120px;
+	top: 70px;
 	display: block;
 	margin: 0 auto;
 }
@@ -25,29 +29,90 @@
  	background-color: white;
 }
 .startButton {
+	top: -10px;
 	width: 80%;
-	height: 65px;
-	background-color: #00bcd4;
+	height: 50px;
+	background-color: #0FABE0;
 	color: white;
 	font-size: 24px;
+	font-weight: normal;
+}
+.nar-bar {
+	background-color: #0FABE0;
+	color: #FFFFFF;
+}
+
+.header, .title {
+	color: #FFFFFF;
+	font-size: 23px !important;
+}
+.activity-name {
+	font-size: 19px;
 	font-weight: bold;
-	margin: auto 0;
+	text-align: center;
 }
-paper-tabs, core-toolbar {
-	background-color: white; 
-	color: black;
-	/*box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);*/
+.start-time {
+	text-align: center;
 }
-paper-tab.core-selected {
-	background-color: #00bcd4;
+.icon-image {
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	margin: 5px;
+}
+.sign-in {
+	margin-top: 30px;
+	margin-left: 30px;
+}
+.fb {
+	width: 83%;
+	margin-left: 30px;
+}
+#skip {
+	margin-top: 20px;
+	margin-left: 250px;
+	font-size: 15px;
+}
+.line {
+    margin: 20px 30px;
+    line-height: 1px;
+    border-left: 80px solid #ddd;
+    border-right: 80px solid #ddd;
+    text-align: center;
+}
+.select-buttons {
+	 margin-top: 10px;
+	 width: 100%;
+	 height: 50px;
+     display: inline-block;
+     vertical-align: baseline;
+     zoom: 1;
+}
+.select-buttons input[type="radio"] {
+  display: none; 
+}
+
+.select-buttons label {
+  padding-top: 15px;
+  height: 50px;
+  text-align: center;
+  font-size: 15px;
+  float: left;
+  width: 33%;
+}
+.select-buttons input[type="radio"]:checked + label { 
+	background-color: #0FABE0;
 	color: white;
 }
-core-toolbar paper-tabs {
-	box-shadow: none;
+#category {
+    text-align: right;
+    height: 50px;
 }
-paper-tabs[noink][nobar] paper-tab.core-selected {
-	color: #ffff8d;
+input[type="number"] {
+	width: 20px;
 }
-paper-tabs[alignBottom] {
-	box-shadow: 0px -6px 6px rgba(0, 0, 0, 0.15);
+#photo {
+	margin: 10px;
+	height: 500px;
+	width: 500px;
 }

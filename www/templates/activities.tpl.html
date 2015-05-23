@@ -1,8 +1,7 @@
 <ion-view>
   <ion-nav-title>
-
-    <div class="h1 title">Activity List</div>
-    <a class="button button-icon icon ion-plus" href="#/tab/activities/add"></a>
+    <a class="button button-icon icon ion-plus" href="#/tab/activities/add" style="float:right"></a>
+    <div class="title">Activity List</div>
 
   </ion-nav-title>
 <ion-content class="has-header">
@@ -12,11 +11,10 @@
         <img ng-src="{{act.image}}">
         <h2>{{act.name}}</h2><i class="icon">{{act.hours}}</i>
         <p>Started at {{act.starts | date : format : shortDate}}</p>
-        
-
         <ion-option-button class="button-assertive" ng-click="remove(act)">
           Delete
         </ion-option-button>
+
       </ion-item>
     </ion-list>
   </ion-content>

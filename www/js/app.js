@@ -98,6 +98,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     })
 
+  .state('tab.success', {
+    url: '/acts/:actId/:mins/play/success',
+    templateUrl: 'templates/success.html',
+    controller: 'SuccessCtrl'
+  })
+  .state('tab.failure', {
+    url: '/acts/:actId/:mins/play/failure',
+    templateUrl: 'templates/failure.html',
+    controller: 'SailureCtrl'
+  })
+
     .state('tab.add', {
       url: '/activities/add',
       views: {
@@ -126,7 +137,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   });
-
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/');
 

@@ -1,10 +1,30 @@
-<ion-view view-title="Login">
+<ion-view title="Transcend">
+<ion-nav-bar class="nar-bar">
+</ion-nav-bar>
   <ion-content>
-	<label class="item">
-    	<button class="button button-block button-positive" ng-click="fbLogin()">
+  <label class="item item-input">
+    <span class="input-label">Username</span>
+    <input type="text">
+  </label>
+  <label class="item item-input">
+    <span class="input-label">Password</span>
+    <input type="password">
+  </label>
+  <div class="sign-in">
+  <button class="button button-calm" style="margin-right: 30px; width: 40%;">
+  sign up
+  </button>
+  <button class="button button-calm" style="width: 40%;">
+  sign in 
+  </button>
+</div>
+<div class="line">OR</div>
+    <button class="button button-positive fb" ng-click="fbLogin()" style="margin-top: 20px;">
+    	<i class="ion-left ion-social-facebook"></i>
            Login with Facebook
-    	</button>
-    </label>
-    <a class="button button-block" href="#/tab/activities">Login anyway</a>
+    </button>
+    <div id="skip">
+    <a href="#/tab/activities">skip</a>
+    </div>
   </ion-content>
 </ion-view>

@@ -6,83 +6,58 @@
 -->
 <ion-view>
   <ion-nav-title>
-    <a class="button icon-left ion-chevron-left button-clear button-dark" style="float: left;" href="#/tab/activities">Back</a>
-    <div class="h1 title">Activity Detail</div>
-      <a class="button button-clear button-positive" href="#/tab/acts/{{act.id}}/edit">Edit</a>
+    <a class="button button-clear" style="float:left;" href="#/tab/activities">Back</a>
+    <span class="header">Activity</span>
+    <a class="button button-clear" style="float:right;" href="#/tab/acts/{{act.id}}/edit">Edit</a>
   </ion-nav-title>
   <ion-content class="has-header">
-
-<!--   <div class="list">
-      <a class="item item-avatar" href="#">
-      <img ng-src="{{act.image}}" style="width: 64px; height: 64px">
-      <h2>{{act.name}}</h2>
-      <p>Started at {{act.startAt}}</p>
-    </a>
-  </div> -->
-
-    <div class="list card">
-
   <div class="item item-avatar">
-      <img ng-src="{{act.image}}" style="width: 64px; height: 64px">
-      <h2>{{act.name}}</h2>
-      <p>Started at {{act.starts | date : format : shortDate}}</p>
+      <img class="icon-image" ng-src="{{act.image}}">
+      <div class="activity-name">{{act.name}}</div>
+      <p class="start-time">Started from {{act.starts | date : format : shortDate}}</p>
   </div>
 
  <div class="list">
-
-  <a class="item" href="#">
+  <div class="item" href="#">
     Category
     <span class="item-note">
       {{act.category}}
     </span>
-  </a>
-  <a class="item" href="#">
+  </div>
+  <div class="item" href="#">
     Goal
     <span class="item-note">
       {{act.hours}} hours
     </span>
-  </a>
-  <a class="item" href="#">
+  </div>
+  <div class="item" href="#">
     Completed
     <span class="item-note">
       {{act.completed}} hours
     </span>
-  </a>
-  <a class="item" href="#">
+  </div>
+  <div class="item" href="#">
     Hours Left
     <span class="item-note">
       {{act.hours - act.completed}} hours
     </span>
-  </a>
-
-</div>
-
-
-
-<!--   <div class="item tabs tabs-secondary tabs-icon-left">
-    <a class="tab-item  my-tab-item">
-      15 mins
-    </a>
-    <a class="tab-item">
-      30 mins
-    </a>
-    <a class="tab-item">
-      45 mins
-    </a>
-  </div> -->
-<h4 style="font-weight:normal;">Choose the time your want to stay focused</h4>
-    <paper-tabs selected="1" noink noslide>
-
-      <paper-tab ng-click="setTime(15)">15 mins</paper-tab>
-      <paper-tab ng-click="setTime(30)">30 mins</paper-tab>
-      <paper-tab ng-click="setTime(45)">45 mins</paper-tab>
-
-    </paper-tabs>
-</div>
-
-  <button ng-click="start(selected)" class="button startButton">
-  Start
+  </div>
+  <div class="item"><h3>Choose the time your want to stay focused</h3>
+  <!-- tab group -->
+  <div class="select-buttons">
+    <input type="radio" name="mins" id="tab-1"  ng-click="setTime(15)">
+    <label for="tab-1">15mins</label>
+    <input type="radio" name="mins" id="tab-2" ng-click="setTime(30)" checked>
+    <label for="tab-2">30mins</label>
+    <input type="radio" name="mins" id="tab-3" ng-click="setTime(45)">
+    <label for="tab-3">45mins</label>
+  </div>
+  </div>
+  <!-- start button -->
+  <button ng-click="start(selected)" class="button button-block startButton">
+  Start 
 </button>
-
+</div>
+  </div>
   </ion-content>
 </ion-view>

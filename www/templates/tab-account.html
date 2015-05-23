@@ -1,15 +1,27 @@
 <ion-view view-title="Profile">
   <ion-content>
-    <div class="list card">
-            <div class="item">
-                <h2>{{user.name}}</h2>
-                <p>{{user.city}}</p>
-            </div>
-            <div class="item item-body">
-                <img src="http://graph.facebook.com/{{user.id}}/picture?width=270&height=270"/>
-            </div>
+  <div class="list">
+    <div class="item item-avatar">
+      <img id="photo" src="http://graph.facebook.com/{{user.id}}/picture?width=270&height=270" ng-if="logout"/>
+      <img id="photo" src="https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png" ng-hide="logout"/>
+      <div class="activity-name">{{user.name}}</div>
+      <p class="start-time">Started from {{act.starts | date : format : shortDate}}</p>
+      <i class="ion-ios-gear" style="float:right;"></i>
     </div>
-    <ion-item ng-click="logout()">
+    <div class="item" href="#">
+    Goal
+    <span class="item-note">
+      hours
+    </span>
+  </div>
+  <div class="item" href="#">
+    Completed
+    <span class="item-note">
+       hours
+    </span>
+  </div>
+ </div>
+    <ion-item ng-click="logout()" ng-if="logout">
         <i class="icon ion-log-out"></i>
             Logout
     </ion-item>

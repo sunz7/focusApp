@@ -12,6 +12,7 @@ angular.module('ionic.utils', [])
     completed: 20,
     image: 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png'
   }];
+  
   //save testObject to localStorage as fake dataitem
     $window.localStorage['activities'] = JSON.stringify(testObject);
   return {
