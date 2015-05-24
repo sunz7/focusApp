@@ -47,13 +47,13 @@ angular.module('starter.services', [])
 .factory("Challenges", function($localstorage){
   return{
       update: function(cha){
-        var cha = $localstorage.getObject('challenges');
-        for(var key in cha){
-          if(cha.id === cha[key].id){
-            cha[key] = cha;
+        var chas = $localstorage.getObject('challenges');
+        for(var key in chas){
+          if(cha.id === chas[key].id){
+            chas[key] = cha;
           }
         }
-        $localstorage.setObject('challenges', cha);
+        $localstorage.setObject('challenges', chas);
       },
       getAll: function(){
         return $localstorage.getObject('challenges');
