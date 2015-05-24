@@ -1,35 +1,45 @@
 angular.module('starter.controllers')
 
-.controller('PlayCtrl', function($scope, Acts, $stateParams, $rootScope,$state) {
-  //reload page every time
-
-  $state.reload();
-  var act = Acts.get($stateParams.actId);
+.controller('PlayCtrl', function($scope, Acts, $stateParams, $rootScope,$state,$timeout) {
+  
   var minutes = $stateParams.mins;
+
   if(minutes == 0) {
     minutes = 30;
   }
-  $scope.canvas=document.getElementById('mycanvas');
-  $scope.play=true;
+
+  $scope.min = minutes;
+  $scope.play = false;
 
   // forward to failure page
   $scope.stopTimer = function() {
-    var remain = minutes-min;
+    clearInterval($scope.timer);
+     var canvas = document.getElementById('mycanvas');
+     var ctx= canvas.getContext('2d');
+     var cWidth= canvas.width;
+     var cHeight= canvas.height;
+     ctx.fillStyle="#FFFFFF";
+     ctx.fillRect(0,0,cWidth,cHeight);
+     $scope.play = false;
+    var remain = minutes-$scope.min;
     $state.go("failure", {actId: $stateParams.actId, mins: remain});
   };
 
   //timer code
 
-  var ctx=$scope.canvas.getContext('2d');
-  var cWidth=$scope.canvas.width;
-  var cHeight=$scope.canvas.height;
+ $scope.startTimer = function() {
+  $scope.play = true;
+  var canvas = document.getElementById('mycanvas');
+  var ctx= canvas.getContext('2d');
+  var cWidth= canvas.width;
+  var cHeight= canvas.height;
 
   var min=minutes - 1;
-  var sec= 3;
+  var sec= 60;
   var counter=0;
   var angle=270;
   var inc=360/(minutes*60); 
-
+  
   function drawScreen() {
   
     //======= reset canvas
@@ -67,9 +77,8 @@ angular.module('starter.controllers')
     ctx.fillText('SEC',cWidth/2+25,cHeight/2-15);
     
     //====== Values
-    
-    
-    
+  
+
     ctx.fillStyle='#0FABE0';
     
     // if (min>9) {
@@ -90,9 +99,8 @@ angular.module('starter.controllers')
     } 
     else {
       ctx.fillText(sec,cWidth/2+10,cHeight/2+35);
-    }
+    } 
     
-    if($scope.play) {
       if (sec<=0 && counter<minutes*60) {
       angle+=inc;
       counter++;
@@ -106,26 +114,17 @@ angular.module('starter.controllers')
         counter++;
         sec--;
       }
-    }
-
+    $scope.min = min;
+    
     //forward to success page!
     if(min == 0 && sec == 0) {
-      //set act.completed
-      // var curAct = Acts.get($stateParams.actId);
-      //var completedM = curAct.completed + minutes;
-      // var acts = Acts.all();
-      // for(var key in acts){
-      //   if(acts[key].id === $stateParams.actId){
-      //     acts[key].completed = 30;
-      //  }
-      // }
-      act.completed = act.completed + minutes/60;
-      Acts.updateOne(act);
-      $rootScope.$broadcast('addNewActSuccess');
       $state.go("success", {actId: $stateParams.actId, mins: minutes}); 
-    }  
+      clearInterval($scope.timer);
+   } 
+
   }
   
-  setInterval(drawScreen,1000);
-
+  // drawScreen()
+  $scope.timer = setInterval(drawScreen,1000);  
+  }
 });

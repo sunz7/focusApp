@@ -1,21 +1,16 @@
-#start{
-	margin-right: 30px;
-	border-radius: 8px;
-	top: 265px;
-	left: 30%;
-	transform: translate(-50%);
-	width: 120px;
-}
-#stop {
-	top: 150px;
-	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
+#stop, #start {
+	top: 120px;
+	width: 34%;
+	margin-right: 40px;
 	font-size: 20px;
 	font-weight: bold;
 	border-radius: 8px;
 	background-color: #49B8DE;
 	color: white;
+}
+#button-group {
+	display: inline;
+	margin-left: 30px;
 }
 #mycanvas {
 	position: relative;

@@ -1,11 +1,18 @@
-<ion-view view-title="Hang In There!" ng-init="init()">
+<ion-view >
 <ion-nav-bar class="nar-bar">
+  <ion-nav-title>
+   <span>Hang In There <i class="ion-clock"></i></span>
+  </ion-nav-title>
 </ion-nav-bar>
   <ion-content>
     <div class="container">
     <canvas id="mycanvas" width="250" height="250"></canvas>
     </div>
-    <button id="stop" class="button button-block" ng-click="stopTimer()">Give Up &nbsp;<i class="ion-android-sad"></i></button>
+    <div id="button-group">
+    <button id="start" class="button" ng-click="startTimer()" ng-disabled="play"> Start &nbsp;<i class="ion-android-happy"></i></button>
+    <button id="stop" class="button" ng-click="stopTimer()">Give Up <i class="ion-android-sad"></i></button>
+  </div>
+  </div>
   </ion-content>
 </ion-view>
 
