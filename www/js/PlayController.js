@@ -1,7 +1,10 @@
 angular.module('starter.controllers')
 
 .controller('PlayCtrl', function($scope, Acts, $stateParams, $rootScope,$state) {
+  //reload page every time
+
   $state.reload();
+  
   var minutes = $stateParams.mins;
   if(minutes == 0) {
     minutes = 30;
