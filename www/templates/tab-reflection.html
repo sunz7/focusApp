@@ -1,7 +1,26 @@
 <ion-view view-title="Reflection" ng-init="init()" ng-style="{'background-image': 'url(' + reflection.image + ')'}" class="ref-container">
   <ion-content>
 
-    <div class="reflection-container"  ></div>
+    <div class="reflection-container"></div>
+    <div class="ref-question">
+    	<h3 style="color:white;">Question of the day:</h3>
+		<p style="padding-bottom: 20px;">Think of someone that you admire. What qualities do you most admire in this person?</p>
+
+  		<button ng-click="reflecting=true;" ng-show="!reflecting && !reflected" class="button button-block startButton">Reflect
+		</button>
+		<textarea ng-model="reflection.text" ng-show="reflecting && !reflected" class="reflection-textbox" name="reflection" id="" cols="45" rows="10"></textarea>
+		<div class="row">
+			<button  ng-show="reflecting" ng-click="reflecting=false;" ng-show="!reflecting &&!reflected" class="button button-block startButton reflectButton">Cancel
+			</button>
+			 <button ng-click="reflected=true; reflecting=false;" ng-show="reflecting && !reflected" class="button button-block startButton reflectButton">Save
+			</button>
+	
+		</div>
+  		
+  		<div ng-show="reflected" class="item item-text-wrap">
+    	{{reflection.text}}
+  		</div>
+    </div>
 
   </ion-content>
 </ion-view>

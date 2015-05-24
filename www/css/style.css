@@ -29,7 +29,34 @@
 
 .ref-container {
 	background: no-repeat center;
+	background-size: 700px;
 }
+
+.reflection-textbox{
+	padding: 3px;
+}
+
+.reflectButton{
+	width: 50% !important;
+	float: left;
+}
+
+.reflection-container{
+	background-color: #404040 ;
+	opacity: 0.4;
+	height: 2000px;
+	width: 2000px;
+	position: absolute;
+}
+
+.ref-question{
+	color: white !important;
+	position: absolute;
+	top: 100px;
+	padding: 20px
+}
+
+
 
 .choose-time-tab {
  	background-color: white;
@@ -168,4 +195,10 @@ input[type="number"] {
 	margin: 21px 90px;
 	height: 40px;
 	color: white;
+}
+.act-image{
+	display: table;
+	margin: 0 auto;
+	width: 30%;
+	padding: 10px;
 }

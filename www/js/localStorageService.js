@@ -10,7 +10,7 @@ angular.module('ionic.utils', [])
     ends: today,
     hours: 30,
     completed: 20,
-    image: 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u59.png'
+    image: 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/study.png'
   }];
   
   //save testObject to localStorage as fake dataitem
