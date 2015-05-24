@@ -8,6 +8,13 @@ angular.module('starter.controllers')
 	$scope.act.starts = new Date($scope.act.starts);
 	$scope.act.ends = new Date($scope.act.ends);
 
+	$scope.act.defaultCat = {name: "work", image: "https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/work.png"};
+	$scope.act.category = $scope.act.defaultCat.name;
+	$scope.categories = [
+		{name: "work", image: "https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/work.png"},
+		{name: "study", image: "https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/study.png"},
+		{name: "recreate", image: "https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/recreate.png"}
+	];
 
 	//$scope.act.id = Acts.all().length + 1;
 	$scope.doneEdit = function(newAct) {
@@ -23,5 +30,11 @@ angular.module('starter.controllers')
 		$state.go('tab.activities');
 
 	};
-
+		$scope.$watch("act.category", function(nv, ov){
+			for(var key in $scope.categories){
+				if(nv === $scope.categories[key].name){
+					$scope.act.image = $scope.categories[key].image;
+				}
+			}
+	}, true);
 });

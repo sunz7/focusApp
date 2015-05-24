@@ -14,6 +14,7 @@
   <ion-content class="has-header">
 
 <div class="list">
+  <img class="act-image" src="{{act.image}}" alt="">
   <label class="item item-input">
     <div class="input-label">
       Name
@@ -26,10 +27,7 @@
       Category
     </div>
     <select id="category" ng-model="act.category">
-      <option>Work</option>
-      <option selected>Study</option>
-      <option>Recreation</option>
-      <option>Others</option>
+      <option ng-repeat="cat in categories">{{cat.name}}</option>
     </select>
   </label>
 
