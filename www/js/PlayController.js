@@ -4,7 +4,7 @@ angular.module('starter.controllers')
   //reload page every time
 
   $state.reload();
-  
+  var act = Acts.get($stateParams.actId);
   var minutes = $stateParams.mins;
   if(minutes == 0) {
     minutes = 30;
@@ -25,7 +25,7 @@ angular.module('starter.controllers')
   var cHeight=$scope.canvas.height;
 
   var min=minutes - 1;
-  var sec= 60;
+  var sec= 3;
   var counter=0;
   var angle=270;
   var inc=360/(minutes*60); 
@@ -112,16 +112,17 @@ angular.module('starter.controllers')
     if(min == 0 && sec == 0) {
       //set act.completed
       // var curAct = Acts.get($stateParams.actId);
-      // var completedM = curAct.completed + minutes;
-      var acts = Acts.all();
-      for(var key in acts){
-        if(acts[key].id === $stateParams.actId){
-          acts[key].completed = 30;
-       }
-      }
-      Acts.setAll(acts);
+      //var completedM = curAct.completed + minutes;
+      // var acts = Acts.all();
+      // for(var key in acts){
+      //   if(acts[key].id === $stateParams.actId){
+      //     acts[key].completed = 30;
+      //  }
+      // }
+      act.completed = act.completed + minutes/60;
+      Acts.updateOne(act);
       $rootScope.$broadcast('addNewActSuccess');
-      $state.go("success", {actId: $stateParams.actId, mins: minutes, acts: acts}); 
+      $state.go("success", {actId: $stateParams.actId, mins: minutes}); 
     }  
   }
   

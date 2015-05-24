@@ -15,6 +15,9 @@ angular.module('starter.services', [])
     },
     remove: function(act) {
       acts.splice(acts.indexOf(act), 1);
+      var acts4 = $localstorage.getObject('activities');
+      acts4.splice(acts4.indexOf(act), 1);
+      $localstorage.setObject('activities', acts4);
     },
     get: function(actId) {
       var acts2 = $localstorage.getObject('activities');
@@ -25,8 +28,18 @@ angular.module('starter.services', [])
       }
       return null;
     },
-    setAll: function(acts){
+    getAll: function(acts){
       return $localstorage.setObject('activities', acts);
+    },
+    updateOne: function(act){
+      var acts3 = $localstorage.getObject('activities');
+      for(var key in acts3){
+        if(act.id === acts3[key].id){
+          acts3[key] = act;
+        }
+      }
+      $localstorage.setObject('activities', acts3);
+
     }
   };
 });
