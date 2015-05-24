@@ -29,7 +29,7 @@ angular.module('starter.services', [])
       }
       return null;
     },
-    getAll: function(acts){
+    setAll: function(acts){
       return $localstorage.setObject('activities', acts);
     },
     updateOne: function(act){
