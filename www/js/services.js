@@ -40,6 +40,23 @@ angular.module('starter.services', [])
       }
       $localstorage.setObject('activities', acts3);
 
-    }
+    },
+
   };
+})
+.factory("Challenges", function($localstorage){
+  return{
+      update: function(cha){
+        var cha = $localstorage.getObject('challenges');
+        for(var key in cha){
+          if(cha.id === cha[key].id){
+            cha[key] = cha;
+          }
+        }
+        $localstorage.setObject('challenges', cha);
+      },
+      getAll: function(){
+        return $localstorage.getObject('challenges');
+      }
+  }
 });

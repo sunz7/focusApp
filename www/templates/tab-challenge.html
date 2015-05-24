@@ -1,9 +1,16 @@
 <ion-view view-title="Challenge">
   <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Should be a list of challenges
-    </ion-toggle>
+<ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="cha in chas" type="item-text-wrap">
+        <h2>{{cha.name}}</h2><p>{{cha.goal}}</p><i class="icon">{{cha.completed}}</i>
+        <ion-option-button class="button-assertive" ng-click="remove(cha)">
+          Delete
+        </ion-option-button>
+        <ion-option-button class="button-positive" ng-click="addOne(cha)">
+          Complete
+        </ion-option-button>
+
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
