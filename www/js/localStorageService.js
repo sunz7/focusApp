@@ -18,6 +18,11 @@ angular.module('ionic.utils', [])
       name: 'TV',
       goal: 'Less than 3 hours per day',
       completed: 0
+    },{
+      id: 2,
+      name: 'PS4',
+      goal: 'Less than 3 hours per day',
+      completed: 2
     }];
   
   //save testObject to localStorage as fake dataitem

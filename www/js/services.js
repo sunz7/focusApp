@@ -15,6 +15,7 @@ angular.module('starter.services', [])
     },
     remove: function(act) {
       acts.splice(acts.indexOf(act), 1);
+
       var acts4 = $localstorage.getObject('activities');
       acts4.splice(acts4.indexOf(act), 1);
       $localstorage.setObject('activities', acts4);
@@ -57,6 +58,11 @@ angular.module('starter.services', [])
       },
       getAll: function(){
         return $localstorage.getObject('challenges');
+      },
+      remove: function(cha){
+      var chas1 = $localstorage.getObject('challenges');
+      chas1.splice(chas1.indexOf(cha), 1);
+      $localstorage.setObject('challenges', chas1);
       }
   }
 });

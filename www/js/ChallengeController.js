@@ -9,4 +9,8 @@ angular.module('starter.controllers')
   	cha.completed += 1;
   	Challenges.update(cha);
   };
+  $scope.remove = function(cha){
+  	$scope.chas.splice($scope.chas.indexOf(cha), 1);
+  	Challenges.remove(cha);
+  }
 });
