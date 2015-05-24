@@ -1,10 +1,33 @@
-<!-- <ion-view view-title="Successful">
+<ion-view class="success">
+  <ion-nav-bar class="hide"></ion-nav-bar>
   <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Should be a list of challenges
-    </ion-toggle>
-    </ion-list>
+
+  <!-- header -->
+  <div class="success-header">
+    Congrats!
+    <div class="sub-header">Achieved staying focused for {{mins}} mins</div>
+  </div>
+
+  <!-- card box -->
+   <div class="card box">
+    <div class="item item-divider box-header"></div>
+    <div class="item item-text-wrap">
+      <div class="row">
+      <img src='https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png' width="50px" height="50px" class="col">
+      <span class="col col-80 box-content" ng-if="completedHr == 0">You just earned a badge for staying focused for 5 hours. Good job <i class="ion-android-happy"></i></span>
+      <span class="col col-80 box-content" ng-if="completedHr != 0">You only have {{leftH}} hours and {{leftM}} minutes left to earned a badge. Go and get it <i class="ion-android-happy"></i>
+      </span>
+      </div>
+      <div id="enable-badge-image" ng-if="completedHr == 0">
+        <img src='https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png' width="80px" height="80px">
+      </div>
+      <div id="disable-badge-image" ng-if="completedHr != 0">
+        <img src='https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png' width="80px" height="80px">
+      </div>
+    </div>
+    </div>
+  
+  <!-- footer session -->
+  <a id="check-badges" class="button icon-right ion-chevron-right button-clear button-dark" ng-click="goProfile()">Check your badges</a>
   </ion-content>
-</ion-view> -->
-<h1> hello</h1>
+</ion-view>

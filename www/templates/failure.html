@@ -1,9 +1,28 @@
 <ion-view class="failure">
   <ion-nav-bar class="hide"></ion-nav-bar>
   <ion-content>
+
+  <!-- header -->
   <div class="fail-header">
-    Good Effort!
-    <div>You will get there next time!</div>
-   <div>
+    Failure <i class="ion-android-sad"></i>
+    <div class="sub-header">Achieved staying focused for {{mins}} mins</div>
+  </div>
+
+  <!-- card box -->
+   <div class="card box">
+    <div class="item item-divider box-header"></div>
+    <div class="item item-text-wrap">
+      <div class="row">
+      <img src='https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png' width="50px" height="50px" class="col">
+      <span class="col col-80 box-content">You will get there next time! Try it again. <i class="ion-android-happy"></i></span>
+      </div>
+      <div id="fail-image">
+        <img src='https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png' width="80px" height="80px">
+      </div>
+    </div>
+    </div>
+  
+  <!-- footer session -->
+  <a id="start-over" class="button icon-left ion-chevron-left button-clear button-dark" ng-click="startOver()">Start Over</a>
   </ion-content>
 </ion-view>

@@ -1,6 +1,7 @@
 angular.module('starter.controllers')
 
-.controller('PlayCtrl', function($scope, $stateParams, $state) {
+.controller('PlayCtrl', function($scope, Acts, $stateParams, $rootScope,$state) {
+  $state.reload();
   var minutes = $stateParams.mins;
   if(minutes == 0) {
     minutes = 30;
@@ -10,8 +11,8 @@ angular.module('starter.controllers')
 
   // forward to failure page
   $scope.stopTimer = function() {
-    $scope.play = false;
-    $state.go('failure');
+    var remain = minutes-min;
+    $state.go("failure", {actId: $stateParams.actId, mins: remain});
   };
 
   //timer code
@@ -104,7 +105,21 @@ angular.module('starter.controllers')
       }
     }
 
-    //forward to success page!    
+    //forward to success page!
+    if(min == 0 && sec == 0) {
+      //set act.completed
+      // var curAct = Acts.get($stateParams.actId);
+      // var completedM = curAct.completed + minutes;
+      var acts = Acts.all();
+      for(var key in acts){
+        if(acts[key].id === $stateParams.actId){
+          acts[key].completed = 30;
+       }
+      }
+      Acts.setAll(acts);
+      $rootScope.$broadcast('addNewActSuccess');
+      $state.go("success", {actId: $stateParams.actId, mins: minutes, acts: acts}); 
+    }  
   }
   
   setInterval(drawScreen,1000);
