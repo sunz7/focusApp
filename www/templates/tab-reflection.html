@@ -5,16 +5,16 @@
     <div class="ref-question">
     	<h3 style="color:white;">Question of the day:</h3>
 		<p style="padding-bottom: 20px;">Think of someone that you admire. What qualities do you most admire in this person?</p>
-
-  		<button ng-click="reflecting=true;" ng-show="!reflecting && !reflected" class="button button-block startButton">Reflect
+  	<button ng-click="reflecting=true;" ng-show="!reflecting && !reflected" class="button button-block startButton">Reflect
 		</button>
-		<textarea ng-model="reflection.text" ng-show="reflecting && !reflected" class="reflection-textbox" name="reflection" id="" cols="45" rows="10"></textarea>
+    <div>
+		<textarea ng-model="reflection.text" ng-show="reflecting && !reflected" class="reflection-textbox" name="reflection" id="" cols="35" rows="10"></textarea>
 		<div class="row">
-			<button  ng-show="reflecting" ng-click="reflecting=false;" ng-show="!reflecting &&!reflected" class="button button-block startButton reflectButton">Cancel
+			<button  ng-show="reflecting" ng-click="reflecting=false;" ng-show="!reflecting &&!reflected" class="button cancel">Cancel
 			</button>
-			 <button ng-click="reflected=true; reflecting=false;" ng-show="reflecting && !reflected" class="button button-block startButton reflectButton">Save
+			 <button ng-click="reflected=true; reflecting=false;" ng-show="reflecting && !reflected" class="button save">Save
 			</button>
-	
+	  </div>
 		</div>
   		
   		<div ng-show="reflected" class="item item-text-wrap">

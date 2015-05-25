@@ -2,14 +2,14 @@
   <ion-content>
 <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="cha in chas" type="item-text-wrap">
-        <h2>{{cha.name}}</h2><p>{{cha.goal}}</p><i class="icon">{{cha.completed}}</i>
+        <img src="https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/badge4.png">
+        <div>{{cha.name}}</div><p style="font-size:13px;">{{cha.goal}}</p><i class="icon hours">{{cha.completed}}&nbsp;<span class="small-h">Days</span></i>
         <ion-option-button class="button-assertive" ng-click="remove(cha)">
           Delete
         </ion-option-button>
         <ion-option-button class="button-positive" ng-click="addOne(cha)">
           Complete
         </ion-option-button>
-
       </ion-item>
     </ion-list>
   </ion-content>

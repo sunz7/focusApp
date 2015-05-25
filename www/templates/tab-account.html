@@ -1,30 +1,39 @@
 <ion-view view-title="Profile">
   <ion-content>
   <div class="list">
-    <div class="item item-avatar">
-      <img id="photo" src="http://graph.facebook.com/{{user.id}}/picture?width=270&height=270" ng-if="logout"/>
-      <img id="photo" src="https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/u18.png" ng-hide="logout"/>
-      <div class="activity-name">{{user.name}}</div>
-      <p class="start-time">Started from {{act.starts | date : format : shortDate}}</p>
-      <i class="ion-ios-gear" style="float:right;"></i>
+    <div class="profile">
+     <!--  <img id="photo" src="http://graph.facebook.com/{{user.id}}/picture?width=270&height=270" ng-if="logout"/> -->
+      <img id="photo" src="https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/recreate.png"/>
+      <div class="activity-name" ng-if="logout">{{user.name}}</div>
+      <div ng-hide="logout">Anonymous User</div>
     </div>
-    <div class="item" href="#">
-    Goal
+    <div class="item">
+    <span id="goal">Goal</span>
     <span class="item-note">
-      hours
+    135 hours
     </span>
   </div>
   <div class="item" href="#">
-    Completed
+    <span id="goal">Completed</span>
     <span class="item-note">
-       hours
+     57 hours
     </span>
   </div>
- </div>
+  <div class="box">
+    <div id="achievement">Total Achievement</div>
+    <div>
+    <img id="photo" style="margin-right:10px;"src="https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/badge3.png">
+    <img id="photo" style="margin-right:10px;"src="https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/badge3.png">
+    <img id="photo" style="margin-right:10px;" src="https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/badge3.png">
+    <img id="photo" style="margin-right:10px; opacity: 0.3;" src="https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/badge3.png">
+    <div>
+
+  </div>
+<!--  </div>
     <ion-item ng-click="logout()" ng-if="logout">
         <i class="icon ion-log-out"></i>
             Logout
-    </ion-item>
+    </ion-item> -->
  <!--    <ion-item ng-click="revokePermissions()">
         <i class="icon ion-unlocked"></i>
             Revoke Permissions

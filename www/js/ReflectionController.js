@@ -2,7 +2,7 @@ angular.module('starter.controllers')
 
 .controller('ReflectionCtrl', function($scope) {
   $scope.reflection = {
-  	image: 'http://upload.wikimedia.org/wikipedia/commons/e/ef/Mount_Hood_reflected_in_Mirror_Lake,_Oregon.jpg',
+  	image: 'https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/Reflection1.png',
   	question: '',
   	myAnswser: ''
 

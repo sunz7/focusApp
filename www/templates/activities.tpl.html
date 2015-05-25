@@ -7,10 +7,14 @@
 <ion-content class="has-header">
 
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="act in acts" type="item-text-wrap" href="#/tab/acts/{{act.id}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right act-item" ng-repeat="act in acts" type="item-text-wrap" ng-init="width = act.completed/act.hours*100" href="#/tab/acts/{{act.id}}">
         <img ng-src="{{act.image}}">
-        <h2>{{act.name}}</h2><i class="icon">{{act.hours}}</i>
-        <p>Started at {{act.starts | date : format : shortDate}}</p>
+        <div class="act-list-name">{{act.name}}</div><i class="icon hours">{{act.hours}}&nbsp;<span class="small-h">Hrs</span></i>
+        <p style="font-size:14px;">Started at {{act.starts | date : format : shortDate}}</p>
+        <div class="arrow">
+        <span style="font-size:11px;">Completed {{act.completed}} hrs<span><div class="arrow-status" ng-style="{'width': width + '%'}">
+        </div>
+        </div>
         <ion-option-button class="button-assertive" ng-click="remove(act)">
           Delete
         </ion-option-button>

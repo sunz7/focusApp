@@ -1,8 +1,7 @@
 angular.module('starter.controllers')
 
 .controller('AccountCtrl', function($scope,$state) {
-    $scope.logout = true;
-    // $scope.act = Acts.get($stateParams.actId);
+    // $scope.logout = true;
     openFB.api({
         path: '/me',
         params: {fields: 'id,name'},

@@ -1,9 +1,9 @@
 angular.module('starter.controllers')
 
-.controller('PlayCtrl', function($scope, Acts, $stateParams, $rootScope,$state,$timeout) {
+.controller('PlayCtrl', function($scope, Acts, $stateParams, $rootScope,$state) {
   
   var minutes = $stateParams.mins;
-
+  var act = Acts.get($stateParams.actId);
   if(minutes == 0) {
     minutes = 30;
   }
@@ -14,13 +14,14 @@ angular.module('starter.controllers')
   // forward to failure page
   $scope.stopTimer = function() {
     clearInterval($scope.timer);
-     var canvas = document.getElementById('mycanvas');
-     var ctx= canvas.getContext('2d');
-     var cWidth= canvas.width;
-     var cHeight= canvas.height;
-     ctx.fillStyle="#FFFFFF";
-     ctx.fillRect(0,0,cWidth,cHeight);
-     $scope.play = false;
+    var canvas = document.getElementById('mycanvas');
+  var ctx= canvas.getContext('2d');
+  var cWidth= canvas.width;
+  var cHeight= canvas.height;
+      ctx.fillStyle="#FFFFFF";
+    ctx.fillRect(0,0,cWidth,cHeight);
+
+    $scope.play = false;
     var remain = minutes-$scope.min;
     $state.go("failure", {actId: $stateParams.actId, mins: remain});
   };
@@ -118,8 +119,10 @@ angular.module('starter.controllers')
     
     //forward to success page!
     if(min == 0 && sec == 0) {
+      act.completed = act.completed + minutes/60;
+      Acts.updateOne(act);
+      $rootScope.$broadcast('addNewActSuccess');
       $state.go("success", {actId: $stateParams.actId, mins: minutes}); 
-      clearInterval($scope.timer);
    } 
 
   }

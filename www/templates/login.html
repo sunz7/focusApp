@@ -1,16 +1,19 @@
 <ion-view title="Transcend">
-<ion-nav-bar class="nar-bar">
+<ion-nav-bar class="hide">
 </ion-nav-bar>
   <ion-content>
   <img class="full-image" src="https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/logo_withname_small.png">
-  <label class="item item-input">
-    <span class="input-label">Username</span>
+
+   <div class="card login">
+    <label class="item item-input">
+    <i class="ion-android-person"></i><span class="input-label">&nbsp;&nbsp;Username</span>
     <input type="text">
   </label>
   <label class="item item-input">
-    <span class="input-label">Password</span>
-    <input type="password">
+    <i class="ion-ios-locked"></i><span class="input-label">&nbsp;&nbsp;Password</span>
+    <input type="text">
   </label>
+   </div>
   <div class="sign-in">
   <button class="button button-calm" style="margin-right: 30px; width: 40%;">
   sign up
@@ -20,12 +23,12 @@
   </button>
 </div>
 <div class="line">OR</div>
-    <button class="button button-positive fb" ng-click="fbLogin()" style="margin-top: 20px;">
+    <button class="button button-positive fb" ng-click="fbLogin()" style="margin-top: 5px;">
     	<i class="ion-left ion-social-facebook"></i>
            Login with Facebook
     </button>
     <div id="skip">
-    <a href="#/tab/activities">skip</a>
+    <a class="button icon-right ion-chevron-right button-clear button-dark" href="#/tab/activities">skip</a>
     </div>
   </ion-content>
 </ion-view>
