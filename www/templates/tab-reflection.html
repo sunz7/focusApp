@@ -3,20 +3,24 @@
 
     <div class="reflection-container"></div>
     <div class="ref-question">
-		<h4 style="padding: 30px;">Think of someone that you admire. What qualities do you most admire in this person?</h4>
-  	<button ng-click="reflecting=true;" ng-show="!reflecting && !reflected" class="button button-block startButton">Reflect
+		<h4 style="padding: 20px;">Think of someone that you admire. What qualities do you most admire in this person?</h4>
+		<div class="ref-image-div">
+			<img class="reflection-image" src="https://raw.githubusercontent.com/sunz7/focusApp/master/www/img/emotion5.png" alt="">
+		</div>
+
+  		<button ng-click="reflecting=true;" ng-show="!reflecting && !reflected" class="button button-block startButton">Reflect
 		</button>
-    <div>
-		<textarea ng-model="reflection.text" ng-show="reflecting && !reflected" class="reflection-textbox" name="reflection" id="" cols="35" rows="10"></textarea>
+    <div class="">
+		<textarea ng-model="reflection.text" ng-show="reflecting && !reflected" class="reflection-textbox" name="reflection" id="" cols="40" rows="10"></textarea>
 		<div class="row">
 			<button  ng-show="reflecting" ng-click="reflecting=false;" ng-show="!reflecting &&!reflected" class="button cancel">Cancel
 			</button>
 			 <button ng-click="reflected=true; reflecting=false;" ng-show="reflecting && !reflected" class="button save">Save
 			</button>
-	  </div>
-		</div>
+	  	</div>
+	</div>
   		
-  		<div ng-show="reflected" class="item item-text-wrap">
+	<div ng-show="reflected" class="item item-text-wrap">
     	{{reflection.text}}
   		</div>
     </div>
